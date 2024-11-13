@@ -3,3 +3,5 @@
 ## Current Gamemodes
 
 - Among Us
+- Hide & Seek (WIP)
+  
