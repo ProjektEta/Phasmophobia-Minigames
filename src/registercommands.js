@@ -1,10 +1,28 @@
-const {REST, Routes, ApplicationCommandOptionType} = require('discord.js');
+const {REST, Routes, ApplicationCommandOptionType, ApplicationCommandOptionWithChoicesMixin} = require('discord.js');
 require('dotenv').config();
 
 const commands = [
     {
         name: 'rules',
-        description: 'States the rules of the minigame'
+        description: 'States the rules of the minigames',
+        options: [ 
+            {
+                name: "gamemode",
+                description: "select the gamemode to use.",
+                type: ApplicationCommandOptionType.String,
+                choices: [
+                    {
+                        name: 'Among Us',
+                        value: 'amongus'
+                    },
+                    {
+                        name: 'Hide & Seek',
+                        value: 'has'
+                    },
+                ],
+                required: true,
+            },
+        ]
     },
 
     {
@@ -36,9 +54,20 @@ const commands = [
                 name: "player-4",
                 description: "fourth player",
                 type: ApplicationCommandOptionType.User,
+                /*
+                choices: [
+                    name: 'current',
+                    value: <@1>
+                ],
+                */
                 required: true,
             },
-        ]
+        ],
+    },
+
+    {
+        name: 'setup',
+        description: 'the settings for Phasmophobia',
     }
 ]
 
